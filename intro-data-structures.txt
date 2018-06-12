@@ -30,11 +30,11 @@ A: console.log(findPerson("Emily"); // returns "Sorry Emily is not in line"
 
 e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
 
-A: parkAttendees.splice(1, 0, "Melissa");
+A: parkAttendees.splice(parkAttendees.indexOf("Ava"), 0, "Melissa");
 
 f) If Patrick wants to leave the line, how would you delete him from the array?
 
-A: parkAttendees.splice(3, 1);
+A: parkAttendees.splice(parkAttendees.indexOf("Patrick"), 1);
 
 
 2. Provide another real-world example that you can model using a data structure.
