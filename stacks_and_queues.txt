@@ -1,0 +1,107 @@
+Provide all the code and written answers in a file named stacks_and_queues.txt:
+
+1. What is the main difference between a stack and a queue?
+
+A: The main difference is the order in which the deal with tasks. Stacks handles the most recent arrivals first, or Last In First Out. Queues handle the arrivals that were first, or First In First Out.
+
+2. What are the similarities between stacks and queues?
+
+A: They are both structures meant to support system functions and create an order of operations.
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A:
+UNDO - A Stack because undo is meant to remove the latest change, which would fall under LIFO.
+REDO - A Stack as well because redo is meant to bring back removed items starting with the most recent item that was removed.
+
+Programming Questions
+
+You may program the following question in any language of your choice. Before you begin coding, write out a plan as to how you will solve the question.
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+A:
+FUNCTION reverseString(original)
+  SET reversed to an empty string
+  FOR each character in original
+    APPEND character to reversed
+  END FOR
+  RETURN reversed
+END FUNCTION
+```
+function reverseString(original) {
+    var reversed = "";
+    for (var i = original.length - 1; i >= 0; i--) {
+        reversed += original[i];
+    }
+    return reversed;
+}
+```
+
+2. Implement the delete functionality of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure.
+
+To delete an item, take all of the elements in the queue one at a time and put them at the end of the queue, except for the last one which should be deleted and returned.
+
+A:
+CLASS Stack
+ FUNCTION pop(queue)
+   FOR
+   INCREMENT the stack position index by 1
+     IF the element is at the last element of the stack position set it to temp
+     RETURN queue
+     END IF
+   RETURN temp
+ END FUNCTION
+END CLASS
+
+```
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+  
+  pop(queue) {
+    for (let i = 0; i < queue.length; i++) {
+      if (i === queue.length -1) {
+        queue.splice(0,1);
+        return queue;
+      }
+      let temp = queue[0];
+    queue.splice(0,1);
+    queue.push(temp);
+    } return "Queue is empty";
+  }
+}
+```
+
+3. Fill in the methods for the following Queue class so that it will work as expected (FIFO).
+
+A:
+CLASS QUEUE
+ FUNCTION enqueue(element)
+   APPEND element to the end of the list
+ END FUNCTION
+
+ FUNCTION dequeue
+  SET temp to the first element
+  REMOVE FIRST element of list from list
+ END FUNCTION
+
+END CLASS
+
+```
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+  
+  enqueue(item) {
+    this.items.push(item);
+  }
+  
+  dequeue() {
+    if (this.items.length === 0) { 
+      return "Queue is empty";
+    } return this.items.shift();
+  }
+```
