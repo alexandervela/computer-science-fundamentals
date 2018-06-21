@@ -1,0 +1,93 @@
+1. What is a binary tree and what makes it unique to other trees?
+
+A: It is a data structure that has root node which contains two child nodes. What makes it unique is that the root node points to both a left child and a right child, which repeats as data is added.
+
+2. What is a heuristic?
+
+A: A heuristic is the guesses an algorithm makes, which sacrifice accuracy in order to solve the problem quicker.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A: Searching for a specific node from a binary tree that consists of 1000 nodes.
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A: DFS descends all the way down the right or left path until it reaches the desired node or a leaf, returning up and then checking nodes that weren't visited. BFS searches all of the closest nodes first before moving on to a lower level.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A: Undirected means that there is no start or end between nodes, the edges simply connect the nodes to each other. A-cyclic means that the edges between the nodes do not form loops. Unweighted means that the time it takes to travel between nodes is unknown.
+
+6. What kind of graph is a binary search tree?
+
+A: A directed, a-cyclic, unweighted graph.
+
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+Example: The value 10 exists in the tree. The value 23 does not exist in the tree.
+
+A:
+This can be accomplished by performing a search on the data in the binary tree. Using a DFS, we will descend the left branch if the value we are searching for is not equivalent to the root. Then proceeding to check the right nodes if the value still has not been found. If none of the nodes in our binary tree contain the value we are searching for then we will want the function to return that it does not exist in the tree.
+
+```
+function findNode(val) {
+  var currentNode = this.root;
+
+  while (currentNode != null) {
+    if (val === currentNode.value) {
+      return "The value " + currentNode.value + " exists in the tree";
+    } else if (val < currentNode.value){
+      currentNode = currentNode.left;
+    } else {
+      currentNode = currentNode.right;
+    }
+  }
+  return "The value " + val + " does not exist in the tree";
+}
+```
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+Example: The distance between the nodes 4 and 10 is 4. The distance between the nodes 8 and 10 is 1. The distance between the nodes 1 and 14 is 4.
+
+A:
+My understanding so far is of two ways to measure distance between nodes. Finding the distance of both of the given nodes from the root node and adding those together, then finding the distance from their lowest common ancestor to the root node and multiplying that distance by 2, then subtracting by it. The other is to find the level of each of the nodes using the lowest common ancestor. I decided to go with the first method. The lowest common ancestor is a node from which the path diverges to any two given nodes. Once the distance between the given nodes to the root and the lowest common ancestor have been found, they can be used to find the distance.
+
+```
+function findDepth(currentNode, targetNode) {
+  if (currentNode == null)
+    return -1;
+  if (currentNode == targetNode)
+    return 0;
+  var left = findDepth(currentNode.left, targetNode);
+  var right = findDepth(currentNode.right, targetNode);
+  if (left == -1 && right == -1)
+    return -1;
+  return left == -1? right + 1: left + 1;
+}
+
+function findLCA(currentNode, node1, node2) {
+  if (currentNode == null)
+    return null;
+  if (currentNode == node1 || currentNode == node2)
+    return currentNode;
+  var left = findLCA(currentNode.left, node1, node2); 
+  var right = findLCA(currentNode.right, node1, node2); 
+  if(left != null && right != null)
+    return currentNode;
+  return left == null? right: left;
+}
+
+function findDistance(root, node1, node2) {
+
+  var ancestor = findLCA(root, node1, node2);
+  var depth1 = findDepth(root, ancestor); 
+  var depth2 = findDepth(root, node1); 
+  var depth3 = findDepth(root, node2); 
+
+  return depth2 + depth3 - 2 * depth1;
+}
+```
