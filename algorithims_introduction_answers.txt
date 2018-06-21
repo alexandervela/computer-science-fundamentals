@@ -1,0 +1,49 @@
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+Making coffee;
+
+A:
+1. Remove coffee tray
+2. Fill coffee filter with choice of ground coffee
+3. Place coffee filter in tray
+4. Insert coffee tray into coffee machine
+5. Add water to coffee machine
+6. Place a mug under coffee dispenser
+7. Start the coffee machine
+8. Remove mug once machine is finished and enjoy
+
+Washing dishes;
+
+A: 
+1. Put on dish washing gloves
+2. Begin by rinsing off the dirty dishes with hot water
+3. Add dish soap to a sponge
+4. Use the sponge to clean the dirty dishes
+5. Rinse off the soap
+6. Place clean dishes on drying rack
+7. Put away clean dishes when they are dry
+
+
+Making cereal;
+
+A:
+1. Start with grabbing yourself a bowl
+2. IF your favorite cereal is available
+THEN fill your bowl with it
+ELSE contemplate what life is and simply choose another cereal to fill your bowl with
+END IF
+3. Pour your milk into the bowl being careful not to overfill
+4. Grab a spoon and you can begin eating
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+A:
+Netflix - They are a movie and tv show streaming giant. They've become so successful that they been able to even produce their own content for their streaming service. As a user of Netflix, I can personally say that I enjoy browsing the "Recommended for you" channel as well as viewing the "Because you watched ..." Since more often than not I find something I haven't seen that appeals to me.
+
+Boston Medical Center - They are using analytics and algorithms to monitor demand patterns and to see how many staff members and rooms are needed during peak times to maintain efficiency. They stand out because their use of algorithms are not financially focused.
+
+Facebook - This social network giant has been very successful and very diverse in the additions and avenues they pursue. They stand because their success is known wide and their ability to monitor and predict patterns based on millions of demographics information and user activity is what has allowed to continue expand and grow, drawing in revenue through ads and now even begin to make their own shows for their platform. 
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A: The accuracy of the answers that the algorithm produces for the desired problem. While one algorithm might be efficient at solving one problem, it may be in efficient at solving other problems.
