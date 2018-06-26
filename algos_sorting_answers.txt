@@ -1,0 +1,79 @@
+1. Write pseudocode for bubble sort.
+
+A:
+FUNCTION swap(collection, i, j)
+   SET tmp to collection[i]
+   SET collection[i] to collection[j]
+   SET collection[j] to tmp
+END FUNCTION
+
+FUNCTION bubbleSort(collection)
+   DO
+     SET swapped to false
+
+     FOR i = FIRST INDEX of collection to LAST INDEX of collection - 1
+       IF collection[i] AND collection[i + 1] AND collection[i] > collection[i + 1] 
+         THEN swap (collection, i, i + 1)
+         SET swapped to true
+       END IF
+     END FOR
+   WHILE swapped
+   RETURN collection
+ END FUNCTION
+
+2. Write pseudocode for quicksort.
+
+A:
+FUNCTION swap(collection, i, j)
+   SET tmp to collection[i]
+   SET collection[i] to collection[j]
+   SET collection[j] to tmp
+END FUNCTION
+
+FUNCTION quickSort(collection, left, right)
+   SET left to left || 0
+   SET right to right || collection.length -1
+END FUNCTION
+
+FUNCTION
+   SET pivot to partitionHoare(collection, left, right)
+   IF left < pivot - 1
+    THEN quicksort(array, left, pivot - 1)
+   END IF
+   IF right > pivot 
+    THEN quicksort(array, pivot, right);
+   END IF
+  RETURN collection;
+END FUNCTION
+
+FUNCTION partitionHorae(collection, left, right)
+   SET pivot to Math.floor((left + right) / 2 );
+   WHILE left <= right
+     WHILE collection[left] < collection[pivot] {
+       left++;
+     END WHILE
+     WHILE collection[right] > collection[pivot] {
+       right--;
+     END WHILE
+     IF left <= right
+       THEN swap(collection, left, right);
+       left++;
+       right--;
+     END IF 
+   END WHILE
+  RETURN left
+END FUNCTION
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+A:
+Insertion - Contains a single for loop, which gives a Linear Growth rate with a time complexity of O(n). 
+Selection Sort - Contains a for loop nested within a for loop, which gives it a Quadratic Growth Rate with a time complexity of O(n^2), which is the 2nd worst runtime.
+Bubble - Also contains a for loop nested within a for loop, which gives it a time complexity of O(n^2).
+Merge - Broken up into multiple separate functions which all work together to achieve the result. This allows it to avoid decreasing runtime, such as avoiding nesting a for loop within a for loop.
+Quick - Broken up into multiple separate functions which all work together to achieve the result. This allows it to achieve a quicker runtime.
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+A: Bucket sort creates (n) number of empty buckets for every array element arr[i].
+It then inserts arr[i] into bucket[n*array[i]] and sorts individual buckets using insertion sort. Once all the buckets are sorted they are then concatenated together. The ideal input for bucket sort is data that is uniformly distributed over a range.
